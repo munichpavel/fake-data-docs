@@ -117,12 +117,12 @@ conditional probability table definition.</p>
 
 <dl class="method">
 <dt id="fake_data_for_learning.fake_data_for_learning.BayesianNodeRV.rvs">
-<code class="sig-name descname">rvs</code><span class="sig-paren">(</span><em class="sig-param">parent_values=None</em>, <em class="sig-param">size=1</em>, <em class="sig-param">seed=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fake_data_for_learning/fake_data_for_learning.html#BayesianNodeRV.rvs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fake_data_for_learning.fake_data_for_learning.BayesianNodeRV.rvs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">rvs</code><span class="sig-paren">(</span><em class="sig-param">parent_values={}</em>, <em class="sig-param">size=1</em>, <em class="sig-param">seed=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fake_data_for_learning/fake_data_for_learning.html#BayesianNodeRV.rvs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fake_data_for_learning.fake_data_for_learning.BayesianNodeRV.rvs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate random variates from the bayesian node.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>parent_values</strong> (<em>None</em><em> or </em><em>dict</em>) – None if node is an orphan, else a dict with parent values</p></li>
+<li><p><strong>parent_values</strong> (<em>dict</em>) – Dict with parent values, possibly empty</p></li>
 <li><p><strong>size</strong> (<em>int</em>) – Number of random samples to draw</p></li>
 <li><p><strong>seed</strong> (<em>int</em>) – Seed for numpy.random</p></li>
 </ul>
@@ -320,7 +320,7 @@ parent ordering for each non-orphan bayesian node random variable.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019, Paul Larsen.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
   </body>
 </html>

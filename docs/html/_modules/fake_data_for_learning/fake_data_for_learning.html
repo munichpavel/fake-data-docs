@@ -41,12 +41,12 @@
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
-<span class="kn">from</span> <span class="nn">networkx.algorithms.dag</span> <span class="k">import</span> <span class="n">topological_sort</span>
+<span class="kn">from</span> <span class="nn">networkx.algorithms.dag</span> <span class="kn">import</span> <span class="n">topological_sort</span>
 
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="k">import</span> <span class="n">LabelEncoder</span>
-<span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="k">import</span> <span class="n">column_or_1d</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelEncoder</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="kn">import</span> <span class="n">column_or_1d</span>
 
-<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">utils</span> <span class="k">as</span> <span class="n">ut</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">utils</span> <span class="k">as</span> <span class="n">ut</span>
 
 
 <div class="viewcode-block" id="BayesianNodeRV"><a class="viewcode-back" href="../../api/fake_data_for_learning.fake_data_for_learning.html#fake_data_for_learning.fake_data_for_learning.BayesianNodeRV">[docs]</a><span class="k">class</span> <span class="nc">BayesianNodeRV</span><span class="p">:</span>
@@ -72,13 +72,13 @@
 <span class="sd">    parent_names: list, optional</span>
 <span class="sd">        list of parent node random variable names. Default is empty list, i.e. no parents</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">cpt</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">parent_names</span><span class="o">=</span><span class="p">[]):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">cpt</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">parent_names</span><span class="o">=</span><span class="p">[]):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cpt</span> <span class="o">=</span> <span class="n">cpt</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_set_parent_names</span><span class="p">(</span><span class="n">parent_names</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_set_values</span><span class="p">(</span><span class="n">cpt</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
   
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span> <span class="o">!=</span> <span class="n">other</span><span class="o">.</span><span class="vm">__class__</span><span class="p">:</span> 
             <span class="k">return</span> <span class="kc">False</span>
@@ -98,8 +98,8 @@
         
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">parent_names</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cpt</span><span class="o">.</span><span class="n">shape</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                <span class="n">f</span><span class="s1">&#39;Number of parent names ({len(parent_names)}) &#39;</span>
-                <span class="n">f</span><span class="s1">&#39;and conditional probability table shape (</span><span class="si">{self.cpt.shape}</span><span class="s1">) &#39;</span>
+                <span class="sa">f</span><span class="s1">&#39;Number of parent names ({len(parent_names)}) &#39;</span>
+                <span class="sa">f</span><span class="s1">&#39;and conditional probability table shape (</span><span class="si">{self.cpt.shape}</span><span class="s1">) &#39;</span>
                 <span class="s1">&#39;are incompatible&#39;</span>
         <span class="p">)</span>
 
@@ -148,9 +148,9 @@
         <span class="n">check</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate_pmf_args</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">parent_values</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">check</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                <span class="n">f</span><span class="s1">&#39;Input value </span><span class="si">{value}</span><span class="s1"> with parent values </span><span class="si">{parent_values}</span><span class="s1"> &#39;</span>
-                <span class="n">f</span><span class="s1">&#39;incompatible with allowed values </span><span class="si">{self.values}</span><span class="s1"> and &#39;</span>
-                <span class="n">f</span><span class="s1">&#39;parent names </span><span class="si">{self.parent_names}</span><span class="s1">&#39;</span>
+                <span class="sa">f</span><span class="s1">&#39;Input value </span><span class="si">{value}</span><span class="s1"> with parent values </span><span class="si">{parent_values}</span><span class="s1"> &#39;</span>
+                <span class="sa">f</span><span class="s1">&#39;incompatible with allowed values </span><span class="si">{self.values}</span><span class="s1"> and &#39;</span>
+                <span class="sa">f</span><span class="s1">&#39;parent names </span><span class="si">{self.parent_names}</span><span class="s1">&#39;</span>
             <span class="p">)</span>
 
         <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_pmf</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">parent_values</span><span class="p">)</span>
@@ -183,14 +183,14 @@
         <span class="k">return</span> <span class="n">probability_table</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
         
         
-<div class="viewcode-block" id="BayesianNodeRV.rvs"><a class="viewcode-back" href="../../api/fake_data_for_learning.fake_data_for_learning.html#fake_data_for_learning.fake_data_for_learning.BayesianNodeRV.rvs">[docs]</a>    <span class="k">def</span> <span class="nf">rvs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent_values</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="BayesianNodeRV.rvs"><a class="viewcode-back" href="../../api/fake_data_for_learning.fake_data_for_learning.html#fake_data_for_learning.fake_data_for_learning.BayesianNodeRV.rvs">[docs]</a>    <span class="k">def</span> <span class="nf">rvs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent_values</span><span class="o">=</span><span class="p">{},</span> <span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Generate random variates from the bayesian node.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        -----------</span>
-<span class="sd">        parent_values : None or dict</span>
-<span class="sd">            None if node is an orphan, else a dict with parent values</span>
+<span class="sd">        parent_values : dict</span>
+<span class="sd">            Dict with parent values, possibly empty</span>
 <span class="sd">        size : int</span>
 <span class="sd">            Number of random samples to draw</span>
 <span class="sd">        seed : int</span>
@@ -246,7 +246,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">sample_value</span><span class="o">.</span><span class="n">value</span></div>
 
-    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s1">&#39;BayesianNodeRV(</span><span class="si">{}</span><span class="s1">, parent_names=</span><span class="si">{}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent_names</span><span class="p">)</span></div>
 
 
@@ -257,7 +257,7 @@
 <span class="sd">    If the sample values are non-default--i.e. other than natural numbers corresponding to the number of possible variable states--then a label encoder is required.</span>
 <span class="sd">    &#39;&#39;&#39;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">label_encoder</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">label_encoder</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">label_encoder</span> <span class="o">=</span> <span class="n">label_encoder</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_set_value</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 
@@ -303,7 +303,7 @@
 <span class="sd">    eve_node_names: list of strings</span>
 <span class="sd">        Node variable names without parents</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">bnrvs</span> <span class="o">=</span> <span class="n">args</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">node_names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_set_node_names</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">adjacency_matrix</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calc_adjacency_matrix</span><span class="p">()</span>
@@ -467,7 +467,7 @@
 <div class="viewcode-block" id="FakeDataBayesianNetwork.draw_graph"><a class="viewcode-back" href="../../api/fake_data_for_learning.fake_data_for_learning.html#fake_data_for_learning.fake_data_for_learning.FakeDataBayesianNetwork.draw_graph">[docs]</a>    <span class="k">def</span> <span class="nf">draw_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_graph</span><span class="p">(),</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;#00b4d9&#39;</span><span class="p">)</span></div>
 
-    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s1">&#39;FakeDataBayesianNetwork with node_names=</span><span class="si">{}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node_names</span><span class="p">)</span></div>
 </pre></div>
 
@@ -505,7 +505,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019, Paul Larsen.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
   </body>
 </html>

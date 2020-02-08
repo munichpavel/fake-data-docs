@@ -45,18 +45,387 @@
   <div class="section" id="module-fake_data_for_learning.utils">
 <span id="fake-data-for-learning-utils-module"></span><h1>fake_data_for_learning.utils module<a class="headerlink" href="#module-fake_data_for_learning.utils" title="Permalink to this headline">¶</a></h1>
 <p>Utility functions for fake_data_for_learning</p>
-<dl class="function">
-<dt id="fake_data_for_learning.utils.generate_random_cpt">
-<code class="sig-prename descclassname">fake_data_for_learning.utils.</code><code class="sig-name descname">generate_random_cpt</code><span class="sig-paren">(</span><em class="sig-param">*cpt_shape</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fake_data_for_learning/utils.html#generate_random_cpt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fake_data_for_learning.utils.generate_random_cpt" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generate non-negative random matrix of given
-shape such that sums over last dimension are 1</p>
+<dl class="class">
+<dt id="fake_data_for_learning.utils.ExpectationConstraint">
+<em class="property">class </em><code class="sig-prename descclassname">fake_data_for_learning.utils.</code><code class="sig-name descname">ExpectationConstraint</code><span class="sig-paren">(</span><em class="sig-param">equation</em>, <em class="sig-param">moment</em>, <em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#fake_data_for_learning.utils.ExpectationConstraint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+<dl class="method">
+<dt id="fake_data_for_learning.utils.ExpectationConstraint.equation">
+<em class="property">property </em><code class="sig-name descname">equation</code><a class="headerlink" href="#fake_data_for_learning.utils.ExpectationConstraint.equation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fake_data_for_learning.utils.ExpectationConstraint.moment">
+<em class="property">property </em><code class="sig-name descname">moment</code><a class="headerlink" href="#fake_data_for_learning.utils.ExpectationConstraint.moment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fake_data_for_learning.utils.ExpectationConstraint.value">
+<em class="property">property </em><code class="sig-name descname">value</code><a class="headerlink" href="#fake_data_for_learning.utils.ExpectationConstraint.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="fake_data_for_learning.utils.MapMultidimIndexToLinear">
+<em class="property">class </em><code class="sig-prename descclassname">fake_data_for_learning.utils.</code><code class="sig-name descname">MapMultidimIndexToLinear</code><span class="sig-paren">(</span><em class="sig-param">dims</em>, <em class="sig-param">coords</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fake_data_for_learning/utils.html#MapMultidimIndexToLinear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fake_data_for_learning.utils.MapMultidimIndexToLinear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Convert multidimensional array indices to linear and back</p>
+<dl class="method">
+<dt id="fake_data_for_learning.utils.MapMultidimIndexToLinear.get_coord_tuple">
+<code class="sig-name descname">get_coord_tuple</code><span class="sig-paren">(</span><em class="sig-param">coord_index_dict</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fake_data_for_learning/utils.html#MapMultidimIndexToLinear.get_coord_tuple"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fake_data_for_learning.utils.MapMultidimIndexToLinear.get_coord_tuple" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="fake_data_for_learning.utils.MapMultidimIndexToLinear.to_linear">
+<code class="sig-name descname">to_linear</code><span class="sig-paren">(</span><em class="sig-param">multi_index_value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fake_data_for_learning/utils.html#MapMultidimIndexToLinear.to_linear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fake_data_for_learning.utils.MapMultidimIndexToLinear.to_linear" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="fake_data_for_learning.utils.MapMultidimIndexToLinear.to_multidim">
+<code class="sig-name descname">to_multidim</code><span class="sig-paren">(</span><em class="sig-param">linear_index_value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fake_data_for_learning/utils.html#MapMultidimIndexToLinear.to_multidim"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fake_data_for_learning.utils.MapMultidimIndexToLinear.to_multidim" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="fake_data_for_learning.utils.ProbabilityPolytope">
+<em class="property">class </em><code class="sig-prename descclassname">fake_data_for_learning.utils.</code><code class="sig-name descname">ProbabilityPolytope</code><span class="sig-paren">(</span><em class="sig-param">dims=()</em>, <em class="sig-param">coords={}</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fake_data_for_learning/utils.html#ProbabilityPolytope"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fake_data_for_learning.utils.ProbabilityPolytope" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Polytope represenation and methods for discrete (conditional) probability distributions</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dims</strong> (<em>iterable of strings</em>) – Dimension names</p></li>
+<li><p><strong>coords</strong> (<em>dict</em>) – Dict with keys dimension names and values dimension values</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="fake_data_for_learning.utils.ProbabilityPolytope.generate_random_cpt">
+<code class="sig-name descname">generate_random_cpt</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fake_data_for_learning/utils.html#ProbabilityPolytope.generate_random_cpt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fake_data_for_learning.utils.ProbabilityPolytope.generate_random_cpt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate random (conditional) probability table from the polytope</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fake_data_for_learning.utils.ProbabilityPolytope.get_all_half_planes">
+<code class="sig-name descname">get_all_half_planes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fake_data_for_learning/utils.html#ProbabilityPolytope.get_all_half_planes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fake_data_for_learning.utils.ProbabilityPolytope.get_all_half_planes" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Get half plane representations of polytope defined by</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>the probability polytope half planes due to</dt><dd><ul>
+<li><p>probabilities summing to one, and</p></li>
+<li><p>probabilities lying in [0, 1], pluz</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>the given expectation value constraints</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>A, b</strong></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>tuple of np.array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="fake_data_for_learning.utils.ProbabilityPolytope.get_expect_equation_coefficient">
+<code class="sig-name descname">get_expect_equation_coefficient</code><span class="sig-paren">(</span><em class="sig-param">constraint_equation</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fake_data_for_learning/utils.html#ProbabilityPolytope.get_expect_equation_coefficient"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fake_data_for_learning.utils.ProbabilityPolytope.get_expect_equation_coefficient" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>constraint_equation</strong> (<em>dict</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>res</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="fake_data_for_learning.utils.ProbabilityPolytope.get_expect_equations_col_indices">
+<code class="sig-name descname">get_expect_equations_col_indices</code><span class="sig-paren">(</span><em class="sig-param">constraint_equation</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fake_data_for_learning/utils.html#ProbabilityPolytope.get_expect_equations_col_indices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fake_data_for_learning.utils.ProbabilityPolytope.get_expect_equations_col_indices" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="fake_data_for_learning.utils.ProbabilityPolytope.get_expect_equations_half_planes">
+<code class="sig-name descname">get_expect_equations_half_planes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fake_data_for_learning/utils.html#ProbabilityPolytope.get_expect_equations_half_planes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fake_data_for_learning.utils.ProbabilityPolytope.get_expect_equations_half_planes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="fake_data_for_learning.utils.ProbabilityPolytope.get_expect_equations_matrix">
+<code class="sig-name descname">get_expect_equations_matrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fake_data_for_learning/utils.html#ProbabilityPolytope.get_expect_equations_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fake_data_for_learning.utils.ProbabilityPolytope.get_expect_equations_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate (linearly indexed) equation matrix from expect_constraints</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>A</strong></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>numpy.array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="fake_data_for_learning.utils.ProbabilityPolytope.get_expect_equations_row_entries">
+<code class="sig-name descname">get_expect_equations_row_entries</code><span class="sig-paren">(</span><em class="sig-param">constraint_equation</em>, <em class="sig-param">moment</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fake_data_for_learning/utils.html#ProbabilityPolytope.get_expect_equations_row_entries"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fake_data_for_learning.utils.ProbabilityPolytope.get_expect_equations_row_entries" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>constraint_equation</strong> (<em>dict</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Values of self.expect_on_dimension in summand</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="fake_data_for_learning.utils.ProbabilityPolytope.get_flat_random_cpt">
+<code class="sig-name descname">get_flat_random_cpt</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fake_data_for_learning/utils.html#ProbabilityPolytope.get_flat_random_cpt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fake_data_for_learning.utils.ProbabilityPolytope.get_flat_random_cpt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate flat (i.e. array with only 1 dimension) representation of a
+random (conditional) probability table from the polytope.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>res</strong> – Float array of shape (number of possible outcomes, )</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>np.array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="fake_data_for_learning.utils.ProbabilityPolytope.get_half_planes_from_equations">
+<em class="property">static </em><code class="sig-name descname">get_half_planes_from_equations</code><span class="sig-paren">(</span><em class="sig-param">A</em>, <em class="sig-param">b</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fake_data_for_learning/utils.html#ProbabilityPolytope.get_half_planes_from_equations"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fake_data_for_learning.utils.ProbabilityPolytope.get_half_planes_from_equations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert equations of the form Ax = b to inequalties of the form
+A’ x’ &lt;= b’</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<em>numpy.array of shape</em><em> (</em><em>m</em><em>,</em><em>n</em><em>)</em>) – </p></li>
+<li><p><strong>b</strong> (<em>numpy.array of shape</em><em> (</em><em>n</em><em>,</em><em>)</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>Ap</strong> (<em>numpy.array of shape (2m, n)</em>)</p></li>
+<li><p><strong>bp</strong> (<em>numpy.array of shape (2n,)</em>)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="fake_data_for_learning.utils.ProbabilityPolytope.get_n_outcomes">
+<code class="sig-name descname">get_n_outcomes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fake_data_for_learning/utils.html#ProbabilityPolytope.get_n_outcomes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fake_data_for_learning.utils.ProbabilityPolytope.get_n_outcomes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="fake_data_for_learning.utils.ProbabilityPolytope.get_n_probability_constraints">
+<code class="sig-name descname">get_n_probability_constraints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fake_data_for_learning/utils.html#ProbabilityPolytope.get_n_probability_constraints"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fake_data_for_learning.utils.ProbabilityPolytope.get_n_probability_constraints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the number of probability constraints involved in calculating
+expectation values over self.expect_on_dimension</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>res</strong></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="fake_data_for_learning.utils.ProbabilityPolytope.get_probability_bounds_half_planes">
+<code class="sig-name descname">get_probability_bounds_half_planes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fake_data_for_learning/utils.html#ProbabilityPolytope.get_probability_bounds_half_planes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fake_data_for_learning.utils.ProbabilityPolytope.get_probability_bounds_half_planes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get half-plane representation of bounds 0 &lt;= p_I &lt;= 1 for
+all possible value indices I</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>A, b</strong></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>tuple of np.array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="fake_data_for_learning.utils.ProbabilityPolytope.get_probability_half_planes">
+<code class="sig-name descname">get_probability_half_planes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fake_data_for_learning/utils.html#ProbabilityPolytope.get_probability_half_planes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fake_data_for_learning.utils.ProbabilityPolytope.get_probability_half_planes" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Get half plane representations of polytope defined by</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>the probability polytope half planes due to</dt><dd><ul>
+<li><p>probabilities summing to one, and</p></li>
+<li><p>probabilities lying in [0, 1], pluz</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>the given expectation value constraints</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>A, b</strong></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>tuple of np.array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="fake_data_for_learning.utils.ProbabilityPolytope.get_sum_dims">
+<code class="sig-name descname">get_sum_dims</code><span class="sig-paren">(</span><em class="sig-param">constraint_equation</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fake_data_for_learning/utils.html#ProbabilityPolytope.get_sum_dims"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fake_data_for_learning.utils.ProbabilityPolytope.get_sum_dims" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>constraint_equation</strong> (<em>dict</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>res</strong> – Matrix dimension names not among constraint equations</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="fake_data_for_learning.utils.ProbabilityPolytope.get_sum_overs">
+<code class="sig-name descname">get_sum_overs</code><span class="sig-paren">(</span><em class="sig-param">constraint_equation</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fake_data_for_learning/utils.html#ProbabilityPolytope.get_sum_overs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fake_data_for_learning.utils.ProbabilityPolytope.get_sum_overs" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>constraint_equation</strong> (<em>dict</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="fake_data_for_learning.utils.ProbabilityPolytope.get_total_probability_constraint_equations">
+<code class="sig-name descname">get_total_probability_constraint_equations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fake_data_for_learning/utils.html#ProbabilityPolytope.get_total_probability_constraint_equations"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fake_data_for_learning.utils.ProbabilityPolytope.get_total_probability_constraint_equations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get iterator of constraint equation for conditional probabilities summing to 1.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>itertools.product</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="fake_data_for_learning.utils.ProbabilityPolytope.get_total_probability_constraint_matrix">
+<code class="sig-name descname">get_total_probability_constraint_matrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fake_data_for_learning/utils.html#ProbabilityPolytope.get_total_probability_constraint_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fake_data_for_learning.utils.ProbabilityPolytope.get_total_probability_constraint_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>A</strong></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>np.array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="fake_data_for_learning.utils.ProbabilityPolytope.get_total_probability_half_planes">
+<code class="sig-name descname">get_total_probability_half_planes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fake_data_for_learning/utils.html#ProbabilityPolytope.get_total_probability_half_planes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fake_data_for_learning.utils.ProbabilityPolytope.get_total_probability_half_planes" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>A, b</strong></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>tuple of np.array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="fake_data_for_learning.utils.ProbabilityPolytope.get_vertex_representation">
+<code class="sig-name descname">get_vertex_representation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fake_data_for_learning/utils.html#ProbabilityPolytope.get_vertex_representation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fake_data_for_learning.utils.ProbabilityPolytope.get_vertex_representation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the vertex representation of the probability polytope.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>res</strong> – Matrix of shape self.dim, total number of constraints</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>np.array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="fake_data_for_learning.utils.ProbabilityPolytope.set_expectation_constraints">
+<code class="sig-name descname">set_expectation_constraints</code><span class="sig-paren">(</span><em class="sig-param">constraints</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fake_data_for_learning/utils.html#ProbabilityPolytope.set_expectation_constraints"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fake_data_for_learning.utils.ProbabilityPolytope.set_expectation_constraints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="fake_data_for_learning.utils.RandomCpt">
+<em class="property">class </em><code class="sig-prename descclassname">fake_data_for_learning.utils.</code><code class="sig-name descname">RandomCpt</code><span class="sig-paren">(</span><em class="sig-param">*shape</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fake_data_for_learning/utils.html#RandomCpt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fake_data_for_learning.utils.RandomCpt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Generate random conditional probability table</p>
+<dl class="method">
+<dt id="fake_data_for_learning.utils.RandomCpt.make_cpt">
+<em class="property">static </em><code class="sig-name descname">make_cpt</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fake_data_for_learning/utils.html#RandomCpt.make_cpt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fake_data_for_learning.utils.RandomCpt.make_cpt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert numpy array x to conditional
+probability table</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="function">
-<dt id="fake_data_for_learning.utils.make_cpt">
-<code class="sig-prename descclassname">fake_data_for_learning.utils.</code><code class="sig-name descname">make_cpt</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fake_data_for_learning/utils.html#make_cpt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fake_data_for_learning.utils.make_cpt" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert numpy array x to conditional
-probability table</p>
+<dt id="fake_data_for_learning.utils.flatten_list">
+<code class="sig-prename descclassname">fake_data_for_learning.utils.</code><code class="sig-name descname">flatten_list</code><span class="sig-paren">(</span><em class="sig-param">l</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fake_data_for_learning/utils.html#flatten_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fake_data_for_learning.utils.flatten_list" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://stackoverflow.com/questions/952914/how-to-make-a-flat-list-out-of-list-of-lists">https://stackoverflow.com/questions/952914/how-to-make-a-flat-list-out-of-list-of-lists</a></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fake_data_for_learning.utils.get_simplex_sample">
+<code class="sig-prename descclassname">fake_data_for_learning.utils.</code><code class="sig-name descname">get_simplex_sample</code><span class="sig-paren">(</span><em class="sig-param">ambient_dimension</em>, <em class="sig-param">size=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fake_data_for_learning/utils.html#get_simplex_sample"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fake_data_for_learning.utils.get_simplex_sample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get random element of the simplex of given ambient dimension</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ambient_dimension</strong> (<em>int</em>) – Dimension of ambient real vector space in which (probability) simplex is defined.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>res</strong> – Random sample point from the simplex</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>np.array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="fake_data_for_learning.utils.product_dict">
+<code class="sig-prename descclassname">fake_data_for_learning.utils.</code><code class="sig-name descname">product_dict</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fake_data_for_learning/utils.html#product_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fake_data_for_learning.utils.product_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://stackoverflow.com/questions/5228158/cartesian-product-of-a-dictionary-of-lists">https://stackoverflow.com/questions/5228158/cartesian-product-of-a-dictionary-of-lists</a></p>
 </dd></dl>
 
 </div>
@@ -115,7 +484,7 @@ probability table</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019, Paul Larsen.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
   </body>
 </html>
