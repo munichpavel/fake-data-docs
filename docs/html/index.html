@@ -1,17 +1,17 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <title>Welcome to fake-data-for-learning’s documentation! &#8212; fake-data-for-learning 0.2.0 documentation</title>
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="API Documentation" href="api.html" /> 
@@ -41,16 +41,24 @@
 <h1>Welcome to fake-data-for-learning’s documentation!<a class="headerlink" href="#welcome-to-fake-data-for-learning-s-documentation" title="Permalink to this headline">¶</a></h1>
 <p>Interesting fake multivariate data is harder to generate than it should be. Textbooks typically give definitions, two standard examples (multinomial and multivariate normal) and then proceed to proving theorems and propositions. True, one dimensional distributions can be combined, but here as well the source of examples is also sparse, e.g. products of distributions or copulas (typically Gaussian or t-copulas) applied to these 1-d examples.</p>
 <p>For machine learning experimentation, it is useful to have an unlimited supply of interesting fake data, where by interesting I mean that we know certain properties of the data and want to test if the algorithm can pick this up. A great potential source of such data is graphical models.</p>
-<p>The goal of this package is to make it easy to generate interesting fake data. We start with discrete Bayesian networks (also known as directed graphical models).</p>
+<p>In the current release, we generate fake data with discrete Bayesian networks (also known as directed graphical models).</p>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Contents</span></p>
+<p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
 </ul>
 </div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>Install from <a class="reference external" href="https://pypi.org/project/fake-data-for-learning/">pypi</a>: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">fake-data-for-learning</span></code></p>
+<p>Note that the methods of <cite>utils.ProbabilityPolytope</cite> that use polytope calculatations to generate conditional probability tables subject to constraints on expectation value uses the non-pure-python library <a class="reference external" href="https://github.com/stephane-caron/pypoman">pypoman</a>. See the installation <a class="reference external" href="https://github.com/stephane-caron/pypoman#installation">instructions</a> for external dependencies.</p>
+</div>
+<div class="section" id="links">
+<h2>Links<a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h2>
 <p><strong>Website</strong>: <a class="reference external" href="https://munichpavel.github.io/fake-data-for-learning">https://munichpavel.github.io/fake-data-for-learning</a></p>
 <p><strong>GitHub Repository</strong>: <a class="reference external" href="https://github.com/munichpavel/fake-data-for-learning">https://github.com/munichpavel/fake-data-for-learning</a></p>
+<p><strong>PyPI</strong>: <a class="reference external" href="https://pypi.org/project/fake-data-for-learning/">https://pypi.org/project/fake-data-for-learning/</a></p>
+</div>
 </div>
 <div class="section" id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
@@ -69,7 +77,11 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="#">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Welcome to fake-data-for-learning’s documentation!</a></li>
+<li><a class="reference internal" href="#">Welcome to fake-data-for-learning’s documentation!</a><ul>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#links">Links</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
 </ul>
 
@@ -92,7 +104,7 @@
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -114,7 +126,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019, Paul Larsen.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.1.
     </div>
   </body>
 </html>

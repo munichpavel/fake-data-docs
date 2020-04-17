@@ -1,17 +1,17 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <title>fake_data_for_learning.utils &#8212; fake-data-for-learning 0.2.0 documentation</title>
     <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
   </head><body>
@@ -35,8 +35,7 @@
           <div class="body" role="main">
             
   <h1>Source code for fake_data_for_learning.utils</h1><div class="highlight"><pre>
-<span></span><span class="sd">&#39;&#39;&#39;Utility functions for fake_data_for_learning&#39;&#39;&#39;</span>
-<span class="kn">import</span> <span class="nn">string</span>
+<span></span><span class="sd">&quot;&quot;&quot;Utility functions for fake_data_for_learning&quot;&quot;&quot;</span>
 <span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span><span class="p">,</span> <span class="n">namedtuple</span>
 
@@ -48,6 +47,7 @@
 
 <span class="kn">from</span> <span class="nn">pypoman</span> <span class="kn">import</span> <span class="n">compute_polytope_vertices</span>
 
+
 <div class="viewcode-block" id="RandomCpt"><a class="viewcode-back" href="../../api/fake_data_for_learning.utils.html#fake_data_for_learning.utils.RandomCpt">[docs]</a><span class="k">class</span> <span class="nc">RandomCpt</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Generate random conditional probability table&quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">shape</span><span class="p">):</span>
@@ -55,8 +55,8 @@
 
     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Generate non-negative random matrix of given </span>
-<span class="sd">        shape such that sums over last dimension are 1</span>
+<span class="sd">        Generate non-negative random matrix of given shape such that sums over</span>
+<span class="sd">        last dimension are 1.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">seed</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
@@ -67,8 +67,7 @@
 <div class="viewcode-block" id="RandomCpt.make_cpt"><a class="viewcode-back" href="../../api/fake_data_for_learning.utils.html#fake_data_for_learning.utils.RandomCpt.make_cpt">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">make_cpt</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Convert numpy array x to conditional</span>
-<span class="sd">        probability table</span>
+<span class="sd">        Convert numpy array x to conditional probability table.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">res</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         <span class="n">ranges</span> <span class="o">=</span> <span class="p">[</span><span class="nb">range</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">res</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
@@ -78,7 +77,6 @@
         <span class="k">return</span> <span class="n">res</span></div></div>
 
 
-
 <div class="viewcode-block" id="get_simplex_sample"><a class="viewcode-back" href="../../api/fake_data_for_learning.utils.html#fake_data_for_learning.utils.get_simplex_sample">[docs]</a><span class="k">def</span> <span class="nf">get_simplex_sample</span><span class="p">(</span><span class="n">ambient_dimension</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get random element of the simplex of given ambient dimension</span>
@@ -86,7 +84,8 @@
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    ambient_dimension : int</span>
-<span class="sd">        Dimension of ambient real vector space in which (probability) simplex is defined.</span>
+<span class="sd">        Dimension of ambient real vector space in which (probability) simplex</span>
+<span class="sd">        is defined.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -97,13 +96,16 @@
     <span class="k">return</span> <span class="n">res</span></div>
 
 
-<span class="n">ExpectationConstraint</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;ExpectationConstraint&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;equation&#39;</span><span class="p">,</span> <span class="s1">&#39;moment&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">])</span>
+<span class="n">ExpectationConstraint</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span>
+    <span class="s1">&#39;ExpectationConstraint&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;equation&#39;</span><span class="p">,</span> <span class="s1">&#39;moment&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">]</span>
+<span class="p">)</span>
 
 
 <div class="viewcode-block" id="ProbabilityPolytope"><a class="viewcode-back" href="../../api/fake_data_for_learning.utils.html#fake_data_for_learning.utils.ProbabilityPolytope">[docs]</a><span class="k">class</span> <span class="nc">ProbabilityPolytope</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Polytope represenation and methods for discrete (conditional) probability distributions</span>
-<span class="sd">    </span>
+<span class="sd">    Polytope represenation and methods for discrete (conditional) probability</span>
+<span class="sd">    distributions.</span>
+
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">     dims : iterable of strings</span>
@@ -111,12 +113,8 @@
 
 <span class="sd">     coords : dict</span>
 <span class="sd">        Dict with keys dimension names and values dimension values</span>
-<span class="sd">    </span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dims</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(),</span> <span class="n">coords</span><span class="o">=</span><span class="nb">dict</span><span class="p">()):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Expectation value of last element in dims subject to expect_constraints</span>
-<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dims</span> <span class="o">=</span> <span class="n">dims</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">expect_on_dimension</span> <span class="o">=</span> <span class="n">dims</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">map_multidim_to_linear</span> <span class="o">=</span> <span class="n">MapMultidimIndexToLinear</span><span class="p">(</span><span class="n">dims</span><span class="p">,</span> <span class="n">coords</span><span class="p">)</span>
@@ -125,10 +123,10 @@
 
 <div class="viewcode-block" id="ProbabilityPolytope.get_probability_half_planes"><a class="viewcode-back" href="../../api/fake_data_for_learning.utils.html#fake_data_for_learning.utils.ProbabilityPolytope.get_probability_half_planes">[docs]</a>    <span class="k">def</span> <span class="nf">get_probability_half_planes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Get half plane representations of polytope defined by </span>
-<span class="sd">            * the probability polytope half planes due to </span>
-<span class="sd">                + probabilities summing to one, and </span>
-<span class="sd">                + probabilities lying in [0, 1], pluz</span>
+<span class="sd">        Get half plane representations of polytope defined by</span>
+<span class="sd">            * the probability polytope half planes due to</span>
+<span class="sd">                + probabilities summing to one, and</span>
+<span class="sd">                + probabilities lying in [0, 1], plus</span>
 <span class="sd">            * the given expectation value constraints</span>
 
 <span class="sd">        Returns</span>
@@ -136,8 +134,9 @@
 <span class="sd">        A, b : tuple of np.array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">A_total_prob</span><span class="p">,</span> <span class="n">b_total_prob</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_total_probability_half_planes</span><span class="p">()</span>
-        <span class="n">A_prob_bounds</span><span class="p">,</span> <span class="n">b_prob_bounds</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_probability_bounds_half_planes</span><span class="p">()</span>
- 
+        <span class="n">A_prob_bounds</span><span class="p">,</span> <span class="n">b_prob_bounds</span> <span class="o">=</span> \
+            <span class="bp">self</span><span class="o">.</span><span class="n">get_probability_bounds_half_planes</span><span class="p">()</span>
+
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">A_total_prob</span><span class="p">,</span> <span class="n">A_prob_bounds</span><span class="p">]),</span> \
             <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">b_total_prob</span><span class="p">,</span> <span class="n">b_prob_bounds</span><span class="p">])</span></div>
 
@@ -162,8 +161,8 @@
 <span class="sd">        -------</span>
 <span class="sd">        A : np.array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        
-        <span class="n">probability_constraint_equations</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_total_probability_constraint_equations</span><span class="p">()</span>
+        <span class="n">probability_constraint_equations</span> <span class="o">=</span> \
+            <span class="bp">self</span><span class="o">.</span><span class="n">get_total_probability_constraint_equations</span><span class="p">()</span>
 
         <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">get_n_probability_constraints</span><span class="p">(),</span>
@@ -178,24 +177,27 @@
 <div class="viewcode-block" id="ProbabilityPolytope.get_n_probability_constraints"><a class="viewcode-back" href="../../api/fake_data_for_learning.utils.html#fake_data_for_learning.utils.ProbabilityPolytope.get_n_probability_constraints">[docs]</a>    <span class="k">def</span> <span class="nf">get_n_probability_constraints</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the number of probability constraints involved in calculating</span>
-<span class="sd">        expectation values over self.expect_on_dimension</span>
+<span class="sd">        expectation values over self.expect_on_dimension.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        res : int</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">res</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_n_outcomes</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">expect_on_dimension</span><span class="p">]))</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">get_n_outcomes</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">expect_on_dimension</span><span class="p">])</span>
+        <span class="p">)</span>
         <span class="k">return</span> <span class="n">res</span></div>
 
 <div class="viewcode-block" id="ProbabilityPolytope.get_n_outcomes"><a class="viewcode-back" href="../../api/fake_data_for_learning.utils.html#fake_data_for_learning.utils.ProbabilityPolytope.get_n_outcomes">[docs]</a>    <span class="k">def</span> <span class="nf">get_n_outcomes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">dim_cards</span> <span class="o">=</span>  <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="n">d</span><span class="p">])</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dims</span><span class="p">]</span>
+        <span class="n">dim_cards</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="n">d</span><span class="p">])</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dims</span><span class="p">]</span>
         <span class="n">res</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">dim_cards</span><span class="p">))</span>
 
         <span class="k">return</span> <span class="n">res</span></div>
 
 <div class="viewcode-block" id="ProbabilityPolytope.get_total_probability_constraint_equations"><a class="viewcode-back" href="../../api/fake_data_for_learning.utils.html#fake_data_for_learning.utils.ProbabilityPolytope.get_total_probability_constraint_equations">[docs]</a>    <span class="k">def</span> <span class="nf">get_total_probability_constraint_equations</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Get iterator of constraint equation for conditional probabilities summing to 1.</span>
+<span class="sd">        Get iterator of constraint equation for conditional probabilities</span>
+<span class="sd">        summing to 1.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -203,23 +205,25 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">coords</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         <span class="n">res</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">expect_on_dimension</span><span class="p">)</span>
-        
+
         <span class="k">return</span> <span class="n">product_dict</span><span class="p">(</span><span class="o">**</span><span class="n">res</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="ProbabilityPolytope.get_probability_bounds_half_planes"><a class="viewcode-back" href="../../api/fake_data_for_learning.utils.html#fake_data_for_learning.utils.ProbabilityPolytope.get_probability_bounds_half_planes">[docs]</a>    <span class="k">def</span> <span class="nf">get_probability_bounds_half_planes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Get half-plane representation of bounds 0 &lt;= p_I &lt;= 1 for </span>
-<span class="sd">        all possible value indices I</span>
+<span class="sd">        Get half-plane representation of bounds 0 &lt;= p_I &lt;= 1 for all possible</span>
+<span class="sd">        value indices I.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        A, b : tuple of np.array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span>
-            <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">map_multidim_to_linear</span><span class="o">.</span><span class="n">dim</span><span class="p">),</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">map_multidim_to_linear</span><span class="o">.</span><span class="n">dim</span><span class="p">)</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">map_multidim_to_linear</span><span class="o">.</span><span class="n">dim</span><span class="p">),</span>
+            <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">map_multidim_to_linear</span><span class="o">.</span><span class="n">dim</span><span class="p">)</span>
         <span class="p">])</span>
         <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span>
-            <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">map_multidim_to_linear</span><span class="o">.</span><span class="n">dim</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">map_multidim_to_linear</span><span class="o">.</span><span class="n">dim</span><span class="p">)</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">map_multidim_to_linear</span><span class="o">.</span><span class="n">dim</span><span class="p">),</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">map_multidim_to_linear</span><span class="o">.</span><span class="n">dim</span><span class="p">)</span>
         <span class="p">])</span>
 
         <span class="k">return</span> <span class="n">A</span><span class="p">,</span> <span class="n">b</span></div>
@@ -249,29 +253,33 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_validate_expectation_constraint</span><span class="p">(</span><span class="n">constraints</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">expect_constraints</span> <span class="o">=</span> <span class="n">constraints</span></div>
 
-
     <span class="k">def</span> <span class="nf">_validate_expectation_constraint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">constraints</span><span class="p">):</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">expect_on_dimension</span> <span class="ow">in</span> <span class="n">flatten_list</span><span class="p">([</span><span class="n">c</span><span class="o">.</span><span class="n">equation</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">constraints</span><span class="p">]):</span>
-            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Final array dimension </span><span class="si">{self.expect_on_dimension}</span><span class="s2"> is reserved &quot;</span> \
-                <span class="s2">&quot;for expectation, and may not be included in expect_constraints&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">expect_on_dimension</span> <span class="ow">in</span> <span class="n">flatten_list</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">equation</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">constraints</span><span class="p">]</span>
+        <span class="p">):</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Final array dimension </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">expect_on_dimension</span><span class="si">}</span><span class="s2"> &quot;</span>
+                    <span class="s2">&quot;reserved for expectation, and may not be included in &quot;</span>
+                    <span class="s2">&quot;expect_constraints&quot;</span>
+                <span class="p">)</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 
         <span class="n">invalid_equations</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">constraint</span> <span class="ow">in</span> <span class="n">constraints</span><span class="p">:</span>
             <span class="n">equation</span> <span class="o">=</span> <span class="n">constraint</span><span class="o">.</span><span class="n">equation</span>
-            <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">equation</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-                <span class="k">if</span> <span class="ow">not</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="n">k</span><span class="p">]:</span>
+            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">equation</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">v</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="n">k</span><span class="p">]:</span>
                     <span class="n">invalid_equations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">equation</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">invalid_equations</span><span class="p">:</span>
-            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Invalid constraint equations </span><span class="si">{invalid_equations}</span><span class="s2">&quot;</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Invalid constraint equations </span><span class="si">{</span><span class="n">invalid_equations</span><span class="si">}</span><span class="s2">&quot;</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 
 <div class="viewcode-block" id="ProbabilityPolytope.get_all_half_planes"><a class="viewcode-back" href="../../api/fake_data_for_learning.utils.html#fake_data_for_learning.utils.ProbabilityPolytope.get_all_half_planes">[docs]</a>    <span class="k">def</span> <span class="nf">get_all_half_planes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Get half plane representations of polytope defined by </span>
-<span class="sd">            * the probability polytope half planes due to </span>
-<span class="sd">                + probabilities summing to one, and </span>
-<span class="sd">                + probabilities lying in [0, 1], pluz</span>
+<span class="sd">        Get half plane representations of polytope defined by</span>
+<span class="sd">            * the probability polytope half planes due to</span>
+<span class="sd">                + probabilities summing to one, and</span>
+<span class="sd">                + probabilities lying in [0, 1], plus</span>
 <span class="sd">            * the given expectation value constraints</span>
 
 <span class="sd">        Returns</span>
@@ -292,31 +300,37 @@
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">As</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">bs</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="ProbabilityPolytope.get_expect_equations_half_planes"><a class="viewcode-back" href="../../api/fake_data_for_learning.utils.html#fake_data_for_learning.utils.ProbabilityPolytope.get_expect_equations_half_planes">[docs]</a>    <span class="k">def</span> <span class="nf">get_expect_equations_half_planes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">A_equations</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_expect_equations_matrix</span><span class="p">()</span>
-        <span class="n">b_equations</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">constraint</span><span class="o">.</span><span class="n">value</span> <span class="k">for</span> <span class="n">constraint</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">expect_constraints</span><span class="p">])</span>
+        <span class="n">b_equations</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">constraint</span><span class="o">.</span><span class="n">value</span> <span class="k">for</span> <span class="n">constraint</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">expect_constraints</span><span class="p">]</span>
+        <span class="p">)</span>
 
         <span class="n">A_half_plane</span><span class="p">,</span> <span class="n">b_half_plane</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_half_planes_from_equations</span><span class="p">(</span>
             <span class="n">A_equations</span><span class="p">,</span> <span class="n">b_equations</span>
         <span class="p">)</span>
-         
+
         <span class="k">return</span> <span class="n">A_half_plane</span><span class="p">,</span> <span class="n">b_half_plane</span></div>
 
 <div class="viewcode-block" id="ProbabilityPolytope.get_expect_equations_matrix"><a class="viewcode-back" href="../../api/fake_data_for_learning.utils.html#fake_data_for_learning.utils.ProbabilityPolytope.get_expect_equations_matrix">[docs]</a>    <span class="k">def</span> <span class="nf">get_expect_equations_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Generate (linearly indexed) equation matrix from expect_constraints</span>
-<span class="sd">        </span>
+
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        A : numpy.array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">expect_constraints</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">map_multidim_to_linear</span><span class="o">.</span><span class="n">dim</span><span class="p">))</span>
+        <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span>
+            <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">expect_constraints</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">map_multidim_to_linear</span><span class="o">.</span><span class="n">dim</span><span class="p">)</span>
+        <span class="p">)</span>
         <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">constraint</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">expect_constraints</span><span class="p">):</span>
             <span class="n">cols</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_expect_equations_col_indices</span><span class="p">(</span><span class="n">constraint</span><span class="o">.</span><span class="n">equation</span><span class="p">)</span>
-            <span class="n">A</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="n">cols</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_expect_equations_row_entries</span><span class="p">(</span><span class="n">constraint</span><span class="o">.</span><span class="n">equation</span><span class="p">,</span> <span class="n">constraint</span><span class="o">.</span><span class="n">moment</span><span class="p">)</span>
-            
-            <span class="n">A</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_expect_equation_coefficient</span><span class="p">(</span><span class="n">constraint</span><span class="o">.</span><span class="n">equation</span><span class="p">)</span> <span class="o">*</span> <span class="n">A</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="p">:]</span>
+            <span class="n">A</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="n">cols</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_expect_equations_row_entries</span><span class="p">(</span>
+                <span class="n">constraint</span><span class="o">.</span><span class="n">equation</span><span class="p">,</span> <span class="n">constraint</span><span class="o">.</span><span class="n">moment</span>
+            <span class="p">)</span>
+
+            <span class="n">A</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_expect_equation_coefficient</span><span class="p">(</span>
+                <span class="n">constraint</span><span class="o">.</span><span class="n">equation</span>
+            <span class="p">)</span> <span class="o">*</span> <span class="n">A</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="p">:]</span>
         <span class="k">return</span> <span class="n">A</span></div>
 
 <div class="viewcode-block" id="ProbabilityPolytope.get_expect_equations_row_entries"><a class="viewcode-back" href="../../api/fake_data_for_learning.utils.html#fake_data_for_learning.utils.ProbabilityPolytope.get_expect_equations_row_entries">[docs]</a>    <span class="k">def</span> <span class="nf">get_expect_equations_row_entries</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">constraint_equation</span><span class="p">,</span> <span class="n">moment</span><span class="p">):</span>
@@ -331,7 +345,10 @@
 <span class="sd">            Values of self.expect_on_dimension in summand</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">sum_overs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_sum_overs</span><span class="p">(</span><span class="n">constraint_equation</span><span class="p">)</span>
-        <span class="k">return</span> <span class="p">[</span><span class="n">sum_over</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">expect_on_dimension</span><span class="p">]</span> <span class="o">**</span> <span class="n">moment</span> <span class="k">for</span> <span class="n">sum_over</span> <span class="ow">in</span> <span class="n">sum_overs</span><span class="p">]</span></div>
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="n">sum_over</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">expect_on_dimension</span><span class="p">]</span> <span class="o">**</span> <span class="n">moment</span>
+            <span class="k">for</span> <span class="n">sum_over</span> <span class="ow">in</span> <span class="n">sum_overs</span>
+        <span class="p">]</span></div>
 
 <div class="viewcode-block" id="ProbabilityPolytope.get_expect_equation_coefficient"><a class="viewcode-back" href="../../api/fake_data_for_learning.utils.html#fake_data_for_learning.utils.ProbabilityPolytope.get_expect_equation_coefficient">[docs]</a>    <span class="k">def</span> <span class="nf">get_expect_equation_coefficient</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">constraint_equation</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -371,8 +388,9 @@
 <span class="sd">        : list</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">sum_dims</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_sum_dims</span><span class="p">(</span><span class="n">constraint_equation</span><span class="p">)</span>
-        <span class="n">sum_ranges</span> <span class="o">=</span> <span class="p">{</span><span class="n">dim</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">map_multidim_to_linear</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span> \
-            <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">sum_dims</span><span class="p">}</span>
+        <span class="n">sum_ranges</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">dim</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">map_multidim_to_linear</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span> <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">sum_dims</span>
+        <span class="p">}</span>
 
         <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">product_dict</span><span class="p">(</span><span class="o">**</span><span class="n">sum_ranges</span><span class="p">))</span></div>
 
@@ -387,9 +405,10 @@
 <span class="sd">        res : tuple</span>
 <span class="sd">            Matrix dimension names not among constraint equations</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">res</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">([</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dims</span> <span class="k">if</span> <span class="n">d</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">constraint_equation</span><span class="o">.</span><span class="n">keys</span><span class="p">()])</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dims</span> <span class="k">if</span> <span class="n">d</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">constraint_equation</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span>
+        <span class="p">)</span>
         <span class="k">return</span> <span class="n">res</span></div>
-
 
 <div class="viewcode-block" id="ProbabilityPolytope.generate_random_cpt"><a class="viewcode-back" href="../../api/fake_data_for_learning.utils.html#fake_data_for_learning.utils.ProbabilityPolytope.generate_random_cpt">[docs]</a>    <span class="k">def</span> <span class="nf">generate_random_cpt</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -397,7 +416,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_initialize_cpt</span><span class="p">()</span>
 
-        <span class="n">flat_cpt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_flat_random_cpt</span><span class="p">()</span>
+        <span class="n">flat_cpt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">generate_flat_random_cpt</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">flat_idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">flat_cpt</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
             <span class="n">multi_idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">map_multidim_to_linear</span><span class="o">.</span><span class="n">to_multidim</span><span class="p">(</span><span class="n">flat_idx</span><span class="p">)</span>
             <span class="n">res</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">multi_idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">flat_cpt</span><span class="p">[</span><span class="n">flat_idx</span><span class="p">]</span>
@@ -411,9 +430,9 @@
 
         <span class="k">return</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">coords</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">coords</span><span class="p">,</span> <span class="n">dims</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dims</span><span class="p">)</span>
 
-<div class="viewcode-block" id="ProbabilityPolytope.get_flat_random_cpt"><a class="viewcode-back" href="../../api/fake_data_for_learning.utils.html#fake_data_for_learning.utils.ProbabilityPolytope.get_flat_random_cpt">[docs]</a>    <span class="k">def</span> <span class="nf">get_flat_random_cpt</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="ProbabilityPolytope.generate_flat_random_cpt"><a class="viewcode-back" href="../../api/fake_data_for_learning.utils.html#fake_data_for_learning.utils.ProbabilityPolytope.generate_flat_random_cpt">[docs]</a>    <span class="k">def</span> <span class="nf">generate_flat_random_cpt</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Generate flat (i.e. array with only 1 dimension) representation of a  </span>
+<span class="sd">        Generate flat (i.e. array with only 1 dimension) representation of a</span>
 <span class="sd">        random (conditional) probability table from the polytope.</span>
 
 <span class="sd">        Returns</span>
@@ -426,7 +445,7 @@
         <span class="n">t</span> <span class="o">=</span> <span class="n">get_simplex_sample</span><span class="p">(</span><span class="n">V</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
         <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">res</span></div>
-    
+
 <div class="viewcode-block" id="ProbabilityPolytope.get_vertex_representation"><a class="viewcode-back" href="../../api/fake_data_for_learning.utils.html#fake_data_for_learning.utils.ProbabilityPolytope.get_vertex_representation">[docs]</a>    <span class="k">def</span> <span class="nf">get_vertex_representation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate the vertex representation of the probability polytope.</span>
@@ -460,18 +479,19 @@
 <span class="sd">        dims : iterable</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dims</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-            <span class="k">raise</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;dims must be an iterable, you entered </span><span class="si">{dims}</span><span class="s1">&#39;</span><span class="p">))</span>
-        
+            <span class="k">raise</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;dims must be an iterable, you entered </span><span class="si">{</span><span class="n">dims</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">))</span>
+
         <span class="k">return</span> <span class="n">dims</span>
-        
 
     <span class="k">def</span> <span class="nf">_get_coords</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">coords</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Enforce ordering from self.dims&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">OrderedDict</span><span class="p">([(</span><span class="n">k</span><span class="p">,</span> <span class="n">coords</span><span class="p">[</span><span class="n">k</span><span class="p">])</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dims</span><span class="p">])</span>
-    
+
     <span class="k">def</span> <span class="nf">_get_mapping</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">flat_coord_values</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">product</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">coords</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
-        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">flat_coord_values</span><span class="p">)),</span> <span class="n">index</span><span class="o">=</span><span class="n">flat_coord_values</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span>
+            <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">flat_coord_values</span><span class="p">)),</span> <span class="n">index</span><span class="o">=</span><span class="n">flat_coord_values</span>
+        <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_get_dim</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Calcuate dimension of space of array entries&quot;&quot;&quot;</span>
@@ -492,7 +512,7 @@
 
 <div class="viewcode-block" id="product_dict"><a class="viewcode-back" href="../../api/fake_data_for_learning.utils.html#fake_data_for_learning.utils.product_dict">[docs]</a><span class="k">def</span> <span class="nf">product_dict</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    https://stackoverflow.com/questions/5228158/cartesian-product-of-a-dictionary-of-lists</span>
+<span class="sd">    From StackOverflow: 5228158/cartesian-product-of-a-dictionary-of-lists</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">keys</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
     <span class="n">vals</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
@@ -502,7 +522,7 @@
 
 <div class="viewcode-block" id="flatten_list"><a class="viewcode-back" href="../../api/fake_data_for_learning.utils.html#fake_data_for_learning.utils.flatten_list">[docs]</a><span class="k">def</span> <span class="nf">flatten_list</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    https://stackoverflow.com/questions/952914/how-to-make-a-flat-list-out-of-list-of-lists</span>
+<span class="sd">    From StackOverflow: 952914/how-to-make-a-flat-list-out-of-list-of-lists</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">sublist</span> <span class="ow">in</span> <span class="n">l</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">sublist</span><span class="p">]</span></div>
 </pre></div>
@@ -521,7 +541,7 @@
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -541,7 +561,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019, Paul Larsen.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.1.
     </div>
   </body>
 </html>
